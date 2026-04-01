@@ -1,0 +1,39 @@
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.skeleton-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease both;
+}
+
+.skeleton-card__cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+}
+
+.skeleton-card__info {
+  padding: 0.875rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skeleton-card__title { height: 14px; width: 80%; }
+.skeleton-card__author { height: 10px; width: 55%; }
+.skeleton-card__tag { height: 9px; width: 40%; margin-top: 0.15rem; }
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    var(--bg-card-hover) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}

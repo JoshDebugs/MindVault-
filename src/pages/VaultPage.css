@@ -1,0 +1,216 @@
+.vault {
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+/* === Header === */
+.vault__header {
+  position: relative;
+  padding: 4.5rem 2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.vault__header-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vault__header-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.2;
+}
+
+.vault__header-orb--1 {
+  width: 400px;
+  height: 400px;
+  top: -200px;
+  left: 25%;
+  background: radial-gradient(circle, rgba(210, 196, 180, 0.12), transparent 70%);
+}
+
+.vault__header-orb--2 {
+  width: 350px;
+  height: 350px;
+  top: -150px;
+  right: 25%;
+  background: radial-gradient(circle, rgba(129, 166, 198, 0.08), transparent 70%);
+}
+
+.vault__header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.vault__label {
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+.vault__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.vault__title-accent {
+  color: var(--sand);
+}
+
+.vault__count {
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+/* === Content === */
+.vault__content {
+  padding: 2rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vault__toolbar {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  animation: fadeInUp 0.3s ease both;
+}
+
+.vault__sort {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vault__sort-label {
+  font-family: var(--font-display);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.vault__sort-options {
+  display: flex;
+  gap: 0;
+}
+
+.vault__sort-btn {
+  padding: 0.4375rem 0.875rem;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: all var(--duration-fast) ease;
+  margin-left: -1px;
+}
+
+.vault__sort-btn:first-child {
+  margin-left: 0;
+}
+
+.vault__sort-btn:hover {
+  color: var(--text-secondary);
+  z-index: 1;
+}
+
+.vault__sort-btn--active {
+  background: var(--bg-card);
+  color: var(--accent);
+  border-color: var(--border-accent);
+  z-index: 2;
+}
+
+.vault__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* === Empty State === */
+.vault__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 6rem 2rem;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.vault__empty-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  margin-bottom: 0.25rem;
+}
+
+.vault__empty .title-lg {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.vault__empty-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--duration-fast) ease;
+}
+
+.vault__empty-cta:hover {
+  background: var(--accent-light);
+}
+
+@media (max-width: 768px) {
+  .vault__header { padding: 3.5rem 1.25rem 1.75rem; }
+  .vault__content { padding: 1.5rem 1.25rem 3rem; }
+  .vault__sort { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .vault__grid {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vault__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
